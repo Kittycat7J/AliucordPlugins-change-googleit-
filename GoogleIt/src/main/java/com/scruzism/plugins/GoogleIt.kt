@@ -27,19 +27,19 @@ class GoogleIt : Plugin() {
                 )
         )
         commands.registerCommand(
-                "googleit",
-                "Generates a google.it link",
+                "YouTubeSearch",
+                "Generates a YouTube search link",
                 query
         )
         { ctx ->
             try {
-                val url = Http.QueryBuilder("https://google.it/search")
+                val url = Http.QueryBuilder("https://www.youtube.com/results?search_query=")
                         .append("q", ctx.getString("query"))
                         .toString()
                 CommandsAPI.CommandResult(url)
             } catch (throwable: Throwable) {
                 throwable.printStackTrace()
-                CommandsAPI.CommandResult("An error occured", null, false, "GoogleIt")
+                CommandsAPI.CommandResult("An error occured", null, false, "YouTubeSearch")
             }
         }
     }
